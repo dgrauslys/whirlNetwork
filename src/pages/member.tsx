@@ -7,18 +7,16 @@ import UserBlock from "../components/userBlock/userBlock";
 import TextSection from "../components/TextSection/TextSection";
 import SocialMedia from "../components/SocialMedia/SocialMedia";
 import { SectionSpacerWrapper } from "../components/SectionSpacer/styles";
+import { allMembers } from "../data/members";
+import { useParams } from "react-router-dom";
 
 function Member() {
   const eventRef = useRef<HTMLDivElement | null>(null);
   const skillsetRef = useRef<HTMLDivElement | null>(null);
   const clientsRef = useRef<HTMLDivElement | null>(null);
-  const member = {
-    id: 1,
-    name: "Amy Armstrong",
-    imageUrl: "src/assets/images/amy.jpg",
-    shortCopy:
-      "Aliquam erat volutpat. Mauris semper libero rutrum, suscipit eros et, blandit felis. Duis vel finibus elit. Donec commodo, sem ut pellentesque consequat, metus nibh molestie libero, ut rutrum ante eros ut eros. Aliquam erat volutpat. Mauris semper libero rutrum, suscipit eros et, blandit felis. Duis vel finibus elit. Donec commodo, sem ut pellentesque consequat, metus nibh molestie libero, ut rutrum ante eros ut eros.Aliquam erat volutpat. Mauris semper libero rutrum, suscipit eros et, blandit felis. Duis vel finibus elit. Donec commodo, sem ut pellentesque consequat, metus nibh molestie libero, ut rutrum ante eros ut eros.",
-  };
+  const { id } = useParams(); 
+  const members = allMembers;
+  const member = members.find(person => person.id == id);
   return (
     <BodyWrapper>
       <ContactContext.Provider value={true}>

@@ -1,11 +1,12 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { BigNoodle, Wrapper } from "../../constants";
 import { FirstName, Menu, WhiteMenu } from "./styles";
 import { MenuItem } from "@mui/material";
 
 
 function NavBarMobile() {
-  const [open, setOpen] = useState(
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [isOpen, setOpen] = useState(
     false
   );
   const handleClose = () => {
@@ -13,14 +14,18 @@ function NavBarMobile() {
   };
   return (
     <>
-          <WhiteMenu onClick={() => {setOpen(true)}}/>
+          <WhiteMenu onClick={() => {console.log('woot'); setOpen(!isOpen);}}/>
           <Menu
-            open={true}
-
-      >
-        <MenuItem onClick={handleClose}>Profile</MenuItem>
-        <MenuItem onClick={handleClose}>My account</MenuItem>
-        <MenuItem onClick={handleClose}>Logout</MenuItem>
+                    anchorEl={anchorEl}
+                    id="account-menu"
+                    open={isOpen}
+                    onClose={handleClose}
+                    onClick={handleClose}
+          >
+        <MenuItem onClick={handleClose}>Home</MenuItem>
+        <MenuItem onClick={handleClose}>Members</MenuItem>
+        <MenuItem onClick={handleClose}>About Us</MenuItem>
+        <MenuItem onClick={handleClose}>Events</MenuItem>
       </Menu>
       </>
   )

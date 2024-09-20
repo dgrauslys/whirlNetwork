@@ -18,10 +18,10 @@ function NavBar() {
       {isDesktop ? (
         <>
           <Links>
-            <HeaderText onClick={() => {goToLocation('/')}}>Home</HeaderText>
-            <HeaderText onClick={() => {goToLocation('/members')}}>Members</HeaderText>
-            <HeaderText onClick={() => {goToLocation('/aboutus')}}> About Us</HeaderText>
-            <HeaderText onClick={() => {goToLocation('/events')}}> Events</HeaderText>
+            <HeaderText onClick={() => {goToLocation('/whirlNetwork/')}}>Home</HeaderText>
+            <HeaderText onClick={() => {goToLocation('/whirlNetwork/members')}}>Members</HeaderText>
+            <HeaderText onClick={() => {goToLocation('/whirlNetwork/aboutus')}}> About Us</HeaderText>
+            <HeaderText onClick={() => {goToLocation('/whirlNetwork/events')}}> Events</HeaderText>
 
           </Links>
         </>

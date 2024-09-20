@@ -14,14 +14,14 @@ function UserBlock({user, counter}) {
     };
 
     const goToMemberPage = (id) => {
-      goToLocation(`/member?id=${id}`);
+      goToLocation(`/whirlNetwork/member/${id}`);
     };
 
   return (
     <UserWrapper>
         {counter % 2 !== 0 && <ImageWrapper imageUrl={imageUrl} onClick={() => goToMemberPage(id)} />}
         <ContentWrapper paddingAmount={paddingAmount}>
-            <HeaderText onClick={() => goToMemberPage(id)}>{name} {counter}</HeaderText>
+            <HeaderText onClick={() => goToMemberPage(id)}>{name}</HeaderText>
             <TextWrapper><MCopy>{shortCopy}</MCopy></TextWrapper>
         </ContentWrapper>
         {counter % 2 == 0 && <ImageWrapper imageUrl={imageUrl} />}

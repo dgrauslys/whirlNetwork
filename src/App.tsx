@@ -10,23 +10,23 @@ function App() {
 
   const router = createBrowserRouter([
     {
-      path: '/',
+      path: '/whirlNetwork/',
       element: <Home />
     },
     {
-      path: '/member',
+      path: '/whirlNetwork/member/:id',
       element: <Member />
     },
     {
-      path: '/members',
+      path: '/whirlNetwork/members',
       element: <Members />
     },
     {
-      path: '/events',
+      path: '/whirlNetwork/events',
       element: <Events />
     },
     {
-      path: '/aboutus',
+      path: '/whirlNetwork/aboutus',
       element: <AboutUs />
     }
   ]);
