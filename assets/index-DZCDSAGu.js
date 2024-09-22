@@ -275,7 +275,7 @@ padding-left: ${e=>e.$isDesktop?"0px":"15px"};
   margin-bottom: 30px;
   margin-left: 30px;
 `,uM=ce(fr)`
-  //background-image: url("src/assets/images/womenForest.jpg");
+  //background-image: url("/assets/images/womenForest.jpg");
   //background-size: cover; /* Ensure the image covers the whole container */
   //background-position: center; /* Center the image */
   //border-radius: 15px;
