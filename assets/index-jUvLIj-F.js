@@ -283,7 +283,7 @@ padding-left: ${e=>e.$isDesktop?"0px":"15px"};
   display: flex;
   justify-content: flex-start;
   gap: 10px;
-  background-image: url("src/assets/images/womenForest.jpg");
+  background-image: url("/assets/images/womenForest.jpg");
   background-size: cover; /* Ensure the image covers the whole container */
   background-position: center; /* Center the image */
   border-radius: 15px;
