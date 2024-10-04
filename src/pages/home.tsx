@@ -6,23 +6,38 @@ import TopDisplay from "../components/TopDisplay/TopDisplay";
 import Event from "../components/Event/Event";
 import { ContactContext } from "../hooks/contexts";
 import Leadership from "../components/Leadership/Leadership";
-import { Wrapper } from "../components/constants";
-
+import { MainSection, Wrapper } from "../components/constants";
+import { NavBarWrapper } from "../components/bodyWrapper/styles";
+import styled from "styled-components";
+import { black, main } from "../constants";
+import SiteSection from "../components/SiteBlock/SiteBlock";
 
 function Home() {
-  const eventRef = useRef<HTMLDivElement | null>(null);
-  const skillsetRef = useRef<HTMLDivElement | null>(null);
-  const clientsRef = useRef<HTMLDivElement | null>(null);
-  const leadershipRef = useRef<HTMLDivElement | null>(null);
+  const PaddingBlock = styled.div`
+    width: 100%;
+    height: 740px;
+  `;
 
   return (
     <BodyWrapper>
       <ContactContext.Provider value={true}>
-        <NavBar skillset={skillsetRef} work={eventRef} clients={clientsRef}/>
-        <Wrapper><TopDisplay /></Wrapper>
-        <Event innerRef={eventRef} title="Flowing Connections: Women's River Walk"/>
-        <Leadership innerRef={leadershipRef} />
-        <Footer />
+        <Wrapper>
+          <TopDisplay />
+        </Wrapper>
+        <NavBarWrapper>
+          <NavBar />
+        </NavBarWrapper>
+        <PaddingBlock />
+        <SiteSection color={black}>
+          <Event isWhite={true}
+            title="Flowing Connections: Women's River Walk"
+            isPast={false}
+          />
+        </SiteSection>
+        <SiteSection>
+          <Leadership />
+        </SiteSection>
+        <Footer/>
       </ContactContext.Provider>
     </BodyWrapper>
   );

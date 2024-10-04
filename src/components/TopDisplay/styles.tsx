@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Wrapper } from "../constants";
+import { HeaderText, TopDisplayText, Wrapper } from "../constants";
 import { accent } from "../../constants";
 
 export const TextBacking = styled.div`
@@ -14,20 +14,48 @@ export const TextBacking = styled.div`
 `;
 
 export const TopImage = styled(Wrapper)`
-  //background-image: url("src/assets/images/womenForest.jpg");
+  //background-image: url("/assets/images/womenForest.jpg");
   //background-size: cover; /* Ensure the image covers the whole container */
   //background-position: center; /* Center the image */
   //border-radius: 15px;
 `;
 
-export const TopWrapper = styled(Wrapper)`
+export const DisplayTextWrapper = styled.div`
   display: flex;
-  justify-content: flex-start;
-  gap: 10px;
-  background-image: url("src/assets/images/womenForest.jpg");
-  background-size: cover; /* Ensure the image covers the whole container */
-  background-position: center; /* Center the image */
-  border-radius: 15px;
+  flex-direction: column;
+  & > ${TopDisplayText} {
+    font-size: 130px;
+  }
+
+  & > ${HeaderText} {
+    position: relative;
+    top: -53px;
+    left: 40px;
+  }
+`;
+
+export const TopWrapper = styled(Wrapper)`
+  position: absolute; /* or fixed, depending on your needs */
+  top: 105px; /* Position it at the top */
+  left: 0; /* Align it to the left */
+  width: 100%; /* Take full width */
+  height: 700px; /* Set a specific height */
+  background-image: url("growth.jpg");
+  background-size: cover; /* Adjusts the image to cover the element */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  background-position: center;
+
+  & > ${DisplayTextWrapper} {
+    position: relative;
+    top: 85px;
+    width: 500px;
+    left: ${({ offset }) => offset || '168px'};
+  }
+`;
+
+export const TopWrapperMobile = styled(TopWrapper)`
+  background-position: right;
+  top: 20px;
 `;
 
 export const TextWrapper = styled.div`

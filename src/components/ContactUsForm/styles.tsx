@@ -13,7 +13,7 @@ export const ContactUsWrapper = styled.div`
 export const ContactUsContent = styled.div`
   display: grid;
   width: 100%;
-  grid-template-columns: 2fr 3fr;
+  grid-template-columns: 1fr 1fr;
   gap: 20px;
   padding-left: 20px;
   max-width: 1200px; /* Optional: maximum width for the content */
@@ -23,10 +23,9 @@ export const ImageWrapper = styled(Wrapper)`
   display: flex;
   justify-content: flex-start;
   gap: 10px;
-  background-image: url("src/assets/images/connect.jpg");
+  background-image: url("trees.jpg");
   background-size: cover; /* Ensure the image covers the whole container */
   background-position: center; /* Center the image */
-  border-radius: 15px;
   min-height: 150px;
   margin-bottom: 30px;
 `;

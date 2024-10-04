@@ -5,12 +5,24 @@ import NavBar from "../components/NavBar/NavBar";
 import { ContactContext } from "../hooks/contexts";
 import Event from "../components/Event/Event";
 import { HeaderText } from "../components/constants";
-
+import SiteSection from "../components/SiteBlock/SiteBlock";
+import { baseSmallPadding } from "../constants";
+import styled from "styled-components";
 
 function Events() {
-  const eventRef = useRef<HTMLDivElement | null>(null);
-  const skillsetRef = useRef<HTMLDivElement | null>(null);
-  const clientsRef = useRef<HTMLDivElement | null>(null);
+  const EventsWrapper = styled.div`
+    & > div {
+      padding-top: 80px;
+    }
+
+    & > div:last-child {
+      padding-bottom: 80px;
+    }
+      
+    & > div:first-child {
+    padding-top: 40px;
+  }
+  `;
 
   const commingUpEvents = [
     {
@@ -29,10 +41,18 @@ function Events() {
   return (
     <BodyWrapper>
       <ContactContext.Provider value={true}>
-        <NavBar skillset={skillsetRef} work={eventRef} clients={clientsRef} />
-        {commingUpEvents.map((item, index) => (
-            <Event innerRef={item.ref} isPast={false} title={item.title}></Event>
-          ))}
+        <SiteSection isSmall={true}>
+          <NavBar />
+        </SiteSection>
+        <SiteSection isSmall={true}>
+          <HeaderText>Upcoming Events!</HeaderText>
+
+          <EventsWrapper>
+            {commingUpEvents.map((item, index) => (
+              <Event isPast={false} title={item.title}></Event>
+            ))}
+          </EventsWrapper>
+        </SiteSection>
         <Footer />
       </ContactContext.Provider>
     </BodyWrapper>

@@ -3,6 +3,8 @@ import { DesktopBody, MobileBody } from "./styles";
 import { accent, minimumDesktopSize, secondary } from "../../constants";
 import { DesktopContext } from "../../hooks/contexts";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { black } from "../../constants";
+import { white } from "../../constants";
 
 export const BodyWrapper = (props) => {
   const { children } = props;
@@ -26,6 +28,10 @@ export const BodyWrapper = (props) => {
       },
       secondary: {
         main: `${secondary}`, // Optional: Customize the secondary color
+      },
+      text: {
+        primary: `${black}`, // Replace with your desired primary text color
+        secondary: `${secondary}`, // Replace with your desired secondary text color
       },
     },
   });

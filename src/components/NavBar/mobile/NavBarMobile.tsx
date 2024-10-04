@@ -1,34 +1,85 @@
 import React, { useState } from "react";
-import { BigNoodle, Wrapper } from "../../constants";
-import { FirstName, Menu, WhiteMenu } from "./styles";
-import { MenuItem } from "@mui/material";
+import { BigNoodle, SubHeaderText, TopDisplayText, Wrapper } from "../../constants";
+import { FirstName, Logo, MenuContainer, WhiteMenu } from "./styles";
+import { MenuItem, Typography } from "@mui/material";
+import Menu from "@mui/material/Menu";
+import { useNavigate } from "react-router-dom";
+import { accent } from "../../../constants";
+//import Woof from './path4.svg';
+import Woof from '../../../assets/images/path4.svg';
+
+
 
 
 function NavBarMobile() {
   const [anchorEl, setAnchorEl] = React.useState(null);
-  const [isOpen, setOpen] = useState(
-    false
-  );
+  const [isOpen, setOpen] = useState(false);
+  const navigate = useNavigate();
   const handleClose = () => {
     setOpen(false);
   };
+  const handleMenuClick = (location) => {
+    setOpen(false);
+    goToLocation(location);
+  };
+
+  const goToLocation = (location: string) => {
+    navigate(location);
+  };
   return (
-    <>
-          <WhiteMenu onClick={() => {console.log('woot'); setOpen(!isOpen);}}/>
-          <Menu
-                    anchorEl={anchorEl}
-                    id="account-menu"
-                    open={isOpen}
-                    onClose={handleClose}
-                    onClick={handleClose}
+    <MenuContainer>
+      <TopDisplayText>WHIRL</TopDisplayText>
+      <>
+        <WhiteMenu
+          onClick={(event) => {
+            setAnchorEl(event.currentTarget);
+            setOpen(!isOpen);
+          }}
+        />
+        <Menu
+          anchorEl={anchorEl}
+          id="account-menu"
+          open={isOpen}
+          onClose={handleClose}
+          onClick={handleClose}
+          sx={{
+            "& .MuiPaper-root": {
+              backgroundColor: `${accent}`,
+            },
+          }}
+        >
+          <MenuItem
+            onClick={() => {
+              handleMenuClick("/whirlNetwork");
+            }}
           >
-        <MenuItem onClick={handleClose}>Home</MenuItem>
-        <MenuItem onClick={handleClose}>Members</MenuItem>
-        <MenuItem onClick={handleClose}>About Us</MenuItem>
-        <MenuItem onClick={handleClose}>Events</MenuItem>
-      </Menu>
+            <SubHeaderText>Home</SubHeaderText>
+          </MenuItem>
+          <MenuItem
+            onClick={() => {
+              handleMenuClick("/whirlNetwork/members");
+            }}
+          >
+            <SubHeaderText>Members</SubHeaderText>
+          </MenuItem>
+          <MenuItem
+            onClick={() => {
+              handleMenuClick("/whirlNetwork/aboutus");
+            }}
+          >
+            <SubHeaderText>About Us</SubHeaderText>
+          </MenuItem>
+          <MenuItem
+            onClick={() => {
+              handleMenuClick("/whirlNetwork/events");
+            }}
+          >
+            <SubHeaderText>Events</SubHeaderText>
+          </MenuItem>
+        </Menu>
       </>
-  )
+    </MenuContainer>
+  );
 }
 
-export default NavBarMobile
+export default NavBarMobile;

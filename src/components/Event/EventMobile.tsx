@@ -1,24 +1,22 @@
 import { useContext } from "react";
 import { DesktopContext } from "../../hooks/contexts";
 import { HeaderText, SubHeaderText, Wrapper, workFluff, Copy } from "../constants";
-import { Button, ImageList, ImageListItem, ImageListItemBar, Typography } from "@mui/material";
+import { Button, ImageList, ImageListItem, ImageListItemBar } from "@mui/material";
 import { usePagination } from "../Pagination/logic";
-import { ButtonWrapper, ContentWrapper, ImageWrapper, TextWrapper, WorkWrapper } from "./styles";
+import { ButtonWrapper, ContentMobileWrapper, ContentWrapper, EventMobileWrapper, ImageMobileWrapper, ImageWrapper, TextWrapper, WorkWrapper } from "./styles";
 import Paginator from "../Pagination/Pagination";
 import { PaginationWrapper } from "../Pagination/styles";
-import EventMobile from "./EventMobile";
 
 
-function Work({ isPast, title, isWhite = false}) {
+function EventMobile({ isPast, title, isWhite = false}) {
   const isDesktop = useContext(DesktopContext);
   const stylesObject = isWhite ? { color: '#D3D3D3' } : {};
 
   return (
-      <>
-        {isDesktop ? (
-        <WorkWrapper>
-          <ImageWrapper/>
-          <ContentWrapper>
+
+        <EventMobileWrapper>
+          <ImageMobileWrapper/>
+          <ContentMobileWrapper>
             <HeaderText style={{...stylesObject}}>{title}</HeaderText>
             <TextWrapper><Copy style={{...stylesObject}}>
             Nunc et orci in ipsum aliquam cursus eu at mi. Sed rutrum at ex id malesuada. Aliquam erat volutpat.
@@ -31,13 +29,9 @@ function Work({ isPast, title, isWhite = false}) {
               {!isPast && <Button>Join Us!</Button>}
               {isPast && <>Ended! Check out our <Button>Event</Button> page for upcoming action!</>}
             </ButtonWrapper>
-          </ContentWrapper>
-        </WorkWrapper>
-        ) : (
-          <EventMobile isPast={isPast} title={title} isWhite={isWhite}/>
-        )}
-      </>
+          </ContentMobileWrapper>
+        </EventMobileWrapper>
   );
 }
 
-export default Work;
+export default EventMobile;

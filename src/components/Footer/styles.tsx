@@ -16,15 +16,36 @@ export const FooterWrapper = styled.div`
   align-items: center; /* Center content vertically */
   padding-top: 40px;
   padding-bottom: 40px;
+    display: flex;
+  flex-direction: column;
 `;
 
 export const FooterContent = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr); /* Three equal-width columns */
   gap: 20px;
-  padding-left: 20px;
+  //padding-left: 20px;
   width: ${desktopWidth}; /* Ensure the content spans the full width of its container */
   max-width: 1200px; /* Optional: maximum width for the content */
+`;
+
+
+export const FooterMobileSocialLinks = styled.div`
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Three equal-width columns */
+  gap: 75px;
+  //padding-left: 20px;
+  margin-top: 25px;
+`;
+
+export const FooterMobileContent = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Three equal-width columns */
+  gap: 20px;
+  //padding-left: 20px;
+  width: 98%; /* Ensure the content spans the full width of its container */
+  max-width: 1200px; /* Optional: maximum width for the content */
+  //margin-left: 45px;
 `;
 
 export const FooterLinks = styled(Typography)`

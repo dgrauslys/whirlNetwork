@@ -1,7 +1,11 @@
-import styled from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 import Typography from "@mui/material/Typography";
 import { white, black, accent } from "../constants";
+import { basePadding } from "../constants";
 
+export const Nanum = createGlobalStyle`
+  @import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap');
+`;
 
 export const Wrapper = styled.div<{ $isDesktop?: boolean; }>`
 width: 100%;
@@ -11,13 +15,19 @@ padding-right: ${props => props.$isDesktop ? "25px" : "0px"};
 padding-left: ${props => props.$isDesktop ? "25px" : "0px"};
 `;
 
-export const Copy = styled(Typography)({
+export const ResponsiveWrapper = styled.div<{ $isDesktop?: boolean; }>`
+padding-right: ${props => props.$isDesktop ? "0px" : "15px"};
+padding-left: ${props => props.$isDesktop ? "0px" : "15px"};
+`;
+
+export const Copy = styled(Typography)(({ padding = '0px' }) => ({
   "&.MuiTypography-root": {
-    color: `${black}`,
-    fontFamily: "Helvetica",
     fontSize: "16px",
+    fontFamily: "Helvetica",
+    paddingLeft: `${padding}`,
+    paddingRight: `${padding}`,
   },
-});
+}));
 
 export const CopyAccent = styled(Copy)({
   "&.MuiTypography-root": {
@@ -27,8 +37,14 @@ export const CopyAccent = styled(Copy)({
 
 export const BigNoodle = styled(Typography)({
   "&.MuiTypography-root": {
-    color: `${black}`,
     fontFamily: "BigNoodle",
+  },
+});
+
+export const TopDisplayText = styled(Typography)({
+  "&.MuiTypography-root": {
+    color: `${black}`,
+    fontFamily: "Nanum Myeongjo",
   },
 });
 
@@ -55,96 +71,9 @@ export const HeaderText = styled(BigNoodle)`
     font-size: 18px;
   }`;
 
-export const workFluff = [
-  {
-    id: 1,
-    imageFile: "test.jpg",
-    tags: ["php", "react"],
-  },
-  {
-    id: 2,
-    imageFile: "test.jpg",
-    tags: ["php", "react"],
-  },
-  {
-    id: 3,
-    imageFile: "test.jpg",
-    tags: ["php", "react"],
-  },
-  {
-    id: 4,
-    imageFile: "test.jpg",
-    tags: ["php", "react"],
-  },
-  {
-    id: 5,
-    imageFile: "test.jpg",
-    tags: ["php", "react"],
-  },
-  {
-    id: 6,
-    imageFile: "test.jpg",
-    tags: ["php", "react"],
-  },
-  {
-    id: 7,
-    imageFile: "test.jpg",
-    tags: ["php", "react"],
-  },
-  {
-    id: 8,
-    imageFile: "test.jpg",
-    tags: ["php", "react"],
-  },
-];
-
-export const clientsFluff = [
-  {
-    id: 1,
-    name: "SiteSpect",
-    imageFile: "test.jpg",
-    tags: ["php", "react"],
-  },
-  {
-    id: 2,
-    name: "FiveStars",
-    imageFile: "test.jpg",
-    tags: ["php", "react"],
-  },
-  {
-    id: 3,
-    name: "Wayfair",
-    imageFile: "test.jpg",
-    tags: ["php", "react"],
-  },
-  {
-    id: 4,
-    name: "Wayfair",
-    imageFile: "test.jpg",
-    tags: ["php", "react"],
-  },
-  {
-    id: 5,
-    name: "Wayfair",
-    imageFile: "test.jpg",
-    tags: ["php", "react"],
-  },
-  {
-    id: 6,
-    name: "Wayfair",
-    imageFile: "test.jpg",
-    tags: ["php", "react"],
-  },
-  {
-    id: 7,
-    name: "Wayfair",
-    imageFile: "test.jpg",
-    tags: ["php", "react"],
-  },
-  {
-    id: 8,
-    name: "Wayfair",
-    imageFile: "test.jpg",
-    tags: ["php", "react"],
-  },
-];
+  export const MainSection = styled.div<{ $color?: string; }>`
+  width: 100%;
+  padding-top: ${basePadding};
+  padding-bottom: ${basePadding};
+  background-color: ${props => props.$color === '' ? "#ffffff" : props.$color}
+  `;

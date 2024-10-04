@@ -1,6 +1,6 @@
 import { Typography } from "@mui/material";
 import { Wrapper } from "../constants";
-import { FooterContent, FooterWrapper, FooterLinks, IconContent } from "./styles";
+import { FooterContent, FooterWrapper, FooterLinks, IconContent, FooterMobileContent, FooterMobileSocialLinks } from "./styles";
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import XIcon from '@mui/icons-material/X';
@@ -8,17 +8,14 @@ import YouTubeIcon from '@mui/icons-material/YouTube';
 import { accent, secondary } from "../../constants";
 import { useContext } from "react";
 import { DesktopContext } from "../../hooks/contexts";
-import FooterMobile from "./FooterMobile";
 
-function Footer() {
+function FooterMobile() {
   const sxValue = {color: secondary};
   const isDesktop = useContext(DesktopContext);
 
   return (
-    <>
-    {isDesktop ? (
           <FooterWrapper>
-          <FooterContent>
+          <FooterMobileContent>
             <div>
               <FooterLinks>Newsletter</FooterLinks>
               <FooterLinks>Resources</FooterLinks>
@@ -30,26 +27,16 @@ function Footer() {
               <FooterLinks>Accessibility Statement</FooterLinks>
               <FooterLinks>Sitemap</FooterLinks>
             </div>
-            <IconContent>
-              <FacebookIcon sx={sxValue} fontSize="large"/>
+          </FooterMobileContent>
+          <FooterMobileSocialLinks>
+          <FacebookIcon sx={sxValue} fontSize="large"/>
               <InstagramIcon  sx={sxValue} fontSize="large"/>
               <XIcon  sx={sxValue} fontSize="large"/>
               <YouTubeIcon  sx={sxValue} fontSize="large"/>
-            </IconContent>
-            <div>
-              <FooterLinks>Community Impact Award</FooterLinks>
-              <FooterLinks>Excellence in Member Engagement</FooterLinks>
-              <FooterLinks>Innovation in Networking</FooterLinks>
-              <FooterLinks>Leadership Development Award</FooterLinks>
-            </div>
-          </FooterContent>
+          </FooterMobileSocialLinks>
         </FooterWrapper>
-              ) : (
-                <FooterMobile/>
-              )}
-    </>
 
   );
 }
 
-export default Footer;
+export default FooterMobile;

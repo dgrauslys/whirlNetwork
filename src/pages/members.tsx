@@ -1,21 +1,23 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { BodyWrapper } from "../components/bodyWrapper/bodyWrapper";
 import Footer from "../components/Footer/Footer";
 import NavBar from "../components/NavBar/NavBar";
-import { ContactContext } from "../hooks/contexts";
+import { ContactContext, DesktopContext } from "../hooks/contexts";
 import UserBlock from "../components/userBlock/userBlock";
 import TextField from "@mui/material/TextField";
 import UserBlockSpacer from "../components/userBlock/userBlockSpacer";
 import { allMembers } from "../data/members";
+import { ResponsiveWrapper } from "../components/constants";
+import SiteSection from "../components/SiteBlock/SiteBlock";
 
 function Members() {
   const eventRef = useRef<HTMLDivElement | null>(null);
   const skillsetRef = useRef<HTMLDivElement | null>(null);
   const clientsRef = useRef<HTMLDivElement | null>(null);
+  const isDesktop = useContext(DesktopContext);
 
   const [members, setMembers] = useState(allMembers);
   const handleChange = (event) => {
-    console.log(event.target.value); // Update the state with the current value of the input
     const target = event.target.value;
 
     let matchingTargets = [];
@@ -46,7 +48,11 @@ function Members() {
   return (
     <BodyWrapper>
       <ContactContext.Provider value={true}>
-        <NavBar skillset={skillsetRef} work={eventRef} clients={clientsRef} />
+      <SiteSection isSmall={true}>
+      <NavBar/>
+      </SiteSection>
+      <SiteSection isSmall={true}>
+      <ResponsiveWrapper $isDesktop={isDesktop}>
         <TextField
           label="Search members by name"
           variant="outlined"
@@ -61,10 +67,17 @@ function Members() {
           margin="normal"
           onChange={handleTagsChange}
         />
-        {members.map((item, index) => (
+        </ResponsiveWrapper>
+      </SiteSection>
+      <SiteSection isSmall={true}>
+      {members.map((item, index) => (
           <UserBlockSpacer><UserBlock user={item} counter={index+1}></UserBlock></UserBlockSpacer>
         ))}
-        <Footer />
+      </SiteSection>
+      <Footer />
+
+        
+
       </ContactContext.Provider>
     </BodyWrapper>
   );

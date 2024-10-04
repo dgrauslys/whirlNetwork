@@ -5,34 +5,40 @@ import './index.css';
 import Member from './pages/member';
 import Events from './pages/events';
 import AboutUs from './pages/aboutUs';
+import { baseUrl } from './constants';
+import { Nanum } from './components/constants';
 
 function App() {
 
   const router = createBrowserRouter([
     {
-      path: '/whirlNetwork/',
+      path: `${baseUrl}`,
       element: <Home />
     },
     {
-      path: '/whirlNetwork/member/:id',
+      path: `${baseUrl}member/:id`,
       element: <Member />
     },
     {
-      path: '/whirlNetwork/members',
+      path: `${baseUrl}members`,
       element: <Members />
     },
     {
-      path: '/whirlNetwork/events',
+      path: `${baseUrl}events`,
       element: <Events />
     },
     {
-      path: '/whirlNetwork/aboutus',
+      path: `${baseUrl}aboutus`,
       element: <AboutUs />
     }
   ]);
 
   return (
-    <RouterProvider router={router} />
+    <>
+        <Nanum/>
+        <RouterProvider router={router} />
+
+    </>
   )
 }
 
