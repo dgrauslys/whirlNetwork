@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { DesktopContext } from "../../hooks/contexts";
 import { HeaderText, Wrapper } from "../constants";
 import { ClientImageWrapper, ClientsWrapper } from "./styles";
@@ -8,15 +8,23 @@ import Paginator from "../Pagination/Pagination";
 import { PaginationWrapper } from "../Pagination/styles";
 import UserBlock from "../userBlock/userBlock";
 import UserBlockSpacer from "../userBlock/userBlockSpacer";
-import { leadership } from "../../data/members";
+import { controllersBaseUrl } from "../../constants";
 
 function Leadership() {
   const isDesktop = useContext(DesktopContext);
   const numberOfCol = isDesktop ? 3 : 2;
   const numberPerPage = isDesktop ? 6 : 4;
 
-  //const count = Math.ceil(clientsFluff.length / numberPerPage);
-  //const paginator = usePagination(clientsFluff, numberPerPage);
+  const [leadership, setLeadership] = useState([]);
+
+  useEffect(() => {
+      fetch(`${controllersBaseUrl}getLeadership.php`)
+          .then(response => response.json())
+          .then(data => {
+              setLeadership(data);
+          })
+          .catch(error => console.error('Error fetching leadership data:', error));
+  }, []);
 
   return (
     <Wrapper>

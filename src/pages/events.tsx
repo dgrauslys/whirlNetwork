@@ -6,7 +6,7 @@ import { ContactContext } from "../hooks/contexts";
 import Event from "../components/Event/Event";
 import { HeaderText } from "../components/constants";
 import SiteSection from "../components/SiteBlock/SiteBlock";
-import { baseSmallPadding } from "../constants";
+import { baseSmallPadding, controllersBaseUrl } from "../constants";
 import styled from "styled-components";
 
 function Events() {
@@ -24,20 +24,17 @@ function Events() {
   }
   `;
 
-  const commingUpEvents = [
-    {
-      ref: useRef<HTMLDivElement | null>(null),
-      title: "Event One - MM/DD/YYYY",
-    },
-    {
-      ref: useRef<HTMLDivElement | null>(null),
-      title: "Event Two - MM/DD/YYYY",
-    },
-    {
-      ref: useRef<HTMLDivElement | null>(null),
-      title: "Event Three - MM/DD/YYYY",
-    },
-  ];
+  const [events, setEvents] = useState([]);
+
+  useEffect(() => {
+      fetch(`${controllersBaseUrl}getUpcommingEvents.php`)
+          .then(response => response.json())
+          .then(data => {
+            setEvents(data);
+          })
+          .catch(error => console.error('Error fetching leadership data:', error));
+  }, []);
+
   return (
     <BodyWrapper>
       <ContactContext.Provider value={true}>
@@ -48,8 +45,20 @@ function Events() {
           <HeaderText>Upcoming Events!</HeaderText>
 
           <EventsWrapper>
-            {commingUpEvents.map((item, index) => (
-              <Event isPast={false} title={item.title}></Event>
+            {events.map((item, index) => (
+              <Event
+                isPast={false}
+                title={item.name}
+                copy={item.description}
+                image={item.image}
+                fbLink={item.fbLink}
+                meetupLink={item.meetupLink}
+                signupLink={item.signupLink}
+                isCancled={item.isCancled}
+                location={item.location}
+                date={item.date}
+                time={item.time}
+              ></Event>
             ))}
           </EventsWrapper>
         </SiteSection>

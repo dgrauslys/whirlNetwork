@@ -14,7 +14,6 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import XIcon from "@mui/icons-material/X";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import YouTubeIcon from "@mui/icons-material/YouTube";
-import { accent } from "../../constants";
 import { secondary } from "../../constants";
 
 function SocialMedia() {

@@ -18,15 +18,32 @@ export const EventMobileWrapper = styled(Wrapper)`
 
 export const ImageWrapper = styled.div`
   flex: 1;
-  background-image: url("womenForest.jpg");
+  background-image: url(${props => `events/${props.imgUrl}`});
   background-size: cover; /* Ensure the image covers the whole container */
   background-position: center; /* Center the image */
+`;
+
+export const InlineContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  width: 100%;
+  gap: 10px;
+  padding-top: 10px;
+`;
+
+export const MeetupWrapper = styled.div`
+  background-image: url("icons/MeetupLogo.png");
+  height: 32px;
+  width: 32px;
 `;
 
 export const ImageMobileWrapper = styled.div`
   flex: 1;
   min-height: 200px;
-  background-image: url("womenForest.jpg");
+  background-image: url(${props => `events/${props.imgUrl}`});
   background-size: cover; /* Ensure the image covers the whole container */
   background-position: center; /* Center the image */
   margin-left: ${mobileMargin};

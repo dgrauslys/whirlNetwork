@@ -4,6 +4,7 @@ import { ContentWrapper, ImageWrapper, TextWrapper, UserWrapper, MCopy } from ".
 import { Copy, HeaderText } from "../constants";
 import { useNavigate } from 'react-router-dom';
 import UserMobileBlock from "./userMobileBlock";
+import { baseUrl } from "../../constants";
 
 
 function UserBlock({user, counter}) {
@@ -17,7 +18,7 @@ function UserBlock({user, counter}) {
     };
 
     const goToMemberPage = (id) => {
-      goToLocation(`/whirlNetwork/member/${id}`);
+      goToLocation(`${baseUrl}/member/${id}`);
     };
 
   return (

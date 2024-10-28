@@ -41,6 +41,9 @@ export const borderSize = '3px';
 
 export const mobileMargin = '15px';
 
-export const isDev = false;
-export const imgUrl = isDev ? 'src/assets/images/' : '';
-export const baseUrl = isDev ? '/whirlNetwork/' : '/whirlNetwork/';
+export const isDev = true;
+//export const imgUrl = isDev ? 'src/assets/images/' : '';
+//export const baseUrl = isDev ? '/whirlNetwork/' : '';
+export const imgUrl = isDev ? '' : '';
+export const baseUrl = isDev ? '' : '';
+export const controllersBaseUrl = isDev ? 'http://localhost/whirlNetwork/data/controllers/' : '';

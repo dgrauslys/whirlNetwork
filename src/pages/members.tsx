@@ -16,7 +16,20 @@ function Members() {
   const clientsRef = useRef<HTMLDivElement | null>(null);
   const isDesktop = useContext(DesktopContext);
 
-  const [members, setMembers] = useState(allMembers);
+  const [allMembers, setAllMembers] = useState([]);
+  const [members, setMembers] = useState([]);
+
+  useEffect(() => {
+      fetch('http://localhost/whirlNetwork/data/controllers/getAllMembers.php')
+          .then(response => response.json())
+          .then(data => {
+            setAllMembers(data);
+            setMembers(data);
+          })
+          .catch(error => console.error('Error fetching membership data:', error));
+  }, []);
+
+  
   const handleChange = (event) => {
     const target = event.target.value;
 
@@ -36,7 +49,7 @@ function Members() {
 
     let matchingTargets = [];
     allMembers.map(person => {
-      const tags_lowercase = person.tags.join(' ').toLowerCase();
+      const tags_lowercase = person.tags.toLowerCase();
       const target_lowercase = target.toLowerCase();
       if (tags_lowercase.includes(target_lowercase)) {
         matchingTargets = [...matchingTargets, person];

@@ -12,6 +12,7 @@ import TextSection from "../components/TextSection/TextSection";
 import ContactUsForm from "../components/ContactUsForm/ContactUsForm";
 import SiteSection from "../components/SiteBlock/SiteBlock";
 import styled from "styled-components";
+import { controllersBaseUrl } from "../constants";
 
 function AboutUs() {
   const ItemsWrapper = styled.div`
@@ -70,20 +71,17 @@ function AboutUs() {
     );
   }
 
-  const pastEvents = [
-    {
-      ref: useRef<HTMLDivElement | null>(null),
-      title: "Event One - MM/DD/YYYY",
-    },
-    {
-      ref: useRef<HTMLDivElement | null>(null),
-      title: "Event Two - MM/DD/YYYY",
-    },
-    {
-      ref: useRef<HTMLDivElement | null>(null),
-      title: "Event Three - MM/DD/YYYY",
-    },
-  ];
+ 
+  const [pastEvents, setEvents] = useState([]);
+
+  useEffect(() => {
+      fetch(`${controllersBaseUrl}getPastEvents.php`)
+          .then(response => response.json())
+          .then(data => {
+            setEvents(data);
+          })
+          .catch(error => console.error('Error fetching leadership data:', error));
+  }, []);
 
   const aboutText =
     "Welcome to our vibrant and supportive women's networking group, where relationships are at the heart of everything we do! We are dedicated to empowering women by fostering connections that inspire, uplift, and create lasting friendships. Our community is all about building each other up, sharing experiences, and growing together. Below, you'll find a glimpse of the exciting and meaningful events we've hosted in the past—each one a testament to the power of women coming together to support and celebrate one another!";
@@ -163,9 +161,17 @@ function AboutUs() {
             <ItemsWrapper>
               {pastEvents.map((item, index) => (
                 <Event
-                  innerRef={item.ref}
                   isPast={true}
-                  title={item.title}
+                  title={item.name}
+                  copy={item.description}
+                  image={item.image}
+                  fbLink={item.fbLink}
+                  meetupLink={item.meetupLink}
+                  signupLink={item.signupLink}
+                  isCancled={item.isCancled}
+                  location={item.location}
+                  date={item.date}
+                  time={item.time}
                 ></Event>
               ))}
             </ItemsWrapper>

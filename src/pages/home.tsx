@@ -9,7 +9,7 @@ import Leadership from "../components/Leadership/Leadership";
 import { MainSection, Wrapper } from "../components/constants";
 import { NavBarWrapper } from "../components/bodyWrapper/styles";
 import styled from "styled-components";
-import { black, main } from "../constants";
+import { black, controllersBaseUrl, main } from "../constants";
 import SiteSection from "../components/SiteBlock/SiteBlock";
 
 function Home() {
@@ -17,6 +17,17 @@ function Home() {
     width: 100%;
     height: 740px;
   `;
+  //getUpcommingEvents.php
+  const [events, setEvents] = useState([]);
+
+  useEffect(() => {
+      fetch(`${controllersBaseUrl}getUpcommingEvent.php`)
+          .then(response => response.json())
+          .then(data => {
+            setEvents(data);
+          })
+          .catch(error => console.error('Error fetching leadership data:', error));
+  }, []);
 
   return (
     <BodyWrapper>
@@ -29,10 +40,23 @@ function Home() {
         </NavBarWrapper>
         <PaddingBlock />
         <SiteSection color={black}>
-          <Event isWhite={true}
-            title="Flowing Connections: Women's River Walk"
-            isPast={false}
-          />
+
+          {events.map((event, index) => (
+              <Event
+              isPast={false}
+              title={event.name}
+              copy={event.description}
+              image={event.image}
+              fbLink={event.fbLink}
+              meetupLink={event.meetupLink}
+              signupLink={event.signupLink}
+              isCancled={event.isCancled}
+              location={event.location}
+              date={event.date}
+              time={event.time}
+              isWhite={true}
+            ></Event>
+        ))}
         </SiteSection>
         <SiteSection>
           <Leadership />

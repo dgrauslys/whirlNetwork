@@ -21,21 +21,21 @@ function NavBar() {
           <Links>
             <HeaderText
               onClick={() => {
-                goToLocation("/whirlNetwork/");
+                goToLocation("");
               }}
             >
               Home
             </HeaderText>
             <HeaderText
               onClick={() => {
-                goToLocation("/whirlNetwork/members");
+                goToLocation("/members");
               }}
             >
               Members
             </HeaderText>
             <HeaderText
               onClick={() => {
-                goToLocation("/whirlNetwork/aboutus");
+                goToLocation("/aboutus");
               }}
             >
               {" "}
@@ -43,7 +43,7 @@ function NavBar() {
             </HeaderText>
             <HeaderText
               onClick={() => {
-                goToLocation("/whirlNetwork/events");
+                goToLocation("/events");
               }}
             >
               {" "}
