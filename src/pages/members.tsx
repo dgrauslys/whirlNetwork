@@ -9,6 +9,7 @@ import UserBlockSpacer from "../components/userBlock/userBlockSpacer";
 import { allMembers } from "../data/members";
 import { ResponsiveWrapper } from "../components/constants";
 import SiteSection from "../components/SiteBlock/SiteBlock";
+import { baseUrl, controllersBaseUrl } from "../constants";
 
 function Members() {
   const eventRef = useRef<HTMLDivElement | null>(null);
@@ -20,7 +21,7 @@ function Members() {
   const [members, setMembers] = useState([]);
 
   useEffect(() => {
-      fetch('http://localhost/whirlNetwork/data/controllers/getAllMembers.php')
+      fetch(`${controllersBaseUrl}/getAllMembers.php`)
           .then(response => response.json())
           .then(data => {
             setAllMembers(data);

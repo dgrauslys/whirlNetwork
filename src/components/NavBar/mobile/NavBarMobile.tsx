@@ -50,28 +50,28 @@ function NavBarMobile() {
         >
           <MenuItem
             onClick={() => {
-              handleMenuClick("/whirlNetwork");
+              handleMenuClick("/");
             }}
           >
             <SubHeaderText>Home</SubHeaderText>
           </MenuItem>
           <MenuItem
             onClick={() => {
-              handleMenuClick("/whirlNetwork/members");
+              handleMenuClick("/members");
             }}
           >
             <SubHeaderText>Members</SubHeaderText>
           </MenuItem>
           <MenuItem
             onClick={() => {
-              handleMenuClick("/whirlNetwork/aboutus");
+              handleMenuClick("/aboutus");
             }}
           >
             <SubHeaderText>About Us</SubHeaderText>
           </MenuItem>
           <MenuItem
             onClick={() => {
-              handleMenuClick("/whirlNetwork/events");
+              handleMenuClick("/events");
             }}
           >
             <SubHeaderText>Events</SubHeaderText>

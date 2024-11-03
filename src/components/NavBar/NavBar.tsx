@@ -17,11 +17,13 @@ function NavBar() {
     <Wrapper>
       {isDesktop ? (
         <MenuContainer>
-          <TopDisplayText>WHIRL</TopDisplayText>
+          <TopDisplayText onClick={() => {
+                goToLocation("/");
+              }}>WHIRL</TopDisplayText>
           <Links>
             <HeaderText
               onClick={() => {
-                goToLocation("");
+                goToLocation("/");
               }}
             >
               Home
