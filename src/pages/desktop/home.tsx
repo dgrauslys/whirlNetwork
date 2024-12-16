@@ -34,7 +34,7 @@ function DesktopHome() {
                     <CardContentWrapper>
                       <SuperHeaderText>{firstSection.title}</SuperHeaderText>
                       <Copy>{firstSection.copy}</Copy>{" "}
-                      <Button size="large" variant="contained">
+                      <Button size="large" variant="contained" >
                         {firstSection.buttonTitle}
                       </Button>
                     </CardContentWrapper>

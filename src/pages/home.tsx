@@ -15,7 +15,7 @@ function Home() {
           <NavBar />
         </SiteSection>
         <Banner></Banner>
-        <DesktopHome/>
+        <DesktopHome />
         <Footer />
       </ContactContext.Provider>
     </BodyWrapper>

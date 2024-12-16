@@ -13,7 +13,7 @@ import { LocalizationProvider, DatePicker } from "@mui/x-date-pickers";
 import { AdapterLuxon } from "@mui/x-date-pickers/AdapterLuxon";
 import { DateTime } from "luxon";
 import DeleteIcon from "@mui/icons-material/Delete";
-import { Button } from "../../components/Button";
+import { Button } from "../Button";
 import CardContainer from "../CardContainer/CardContainer";
 import { DesktopContext } from "../../hooks/contexts";
 import { Copy, HeaderText, SmallCopy } from "../constants";
@@ -105,7 +105,6 @@ import { baseUrl } from "../../constants";
     console.log("Time Windows:", timeWindows);
     console.log("Phone Number:", phoneNumber);
     console.log("Description:", description);
-    // https://zugyorganizer.com/sendEmail.php
     axios.post('/sendEmail.php', data)
       .then(response => {
         console.log(response);

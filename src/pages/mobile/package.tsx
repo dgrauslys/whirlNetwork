@@ -25,7 +25,7 @@ function MobilePackage() {
     return new URLSearchParams(search);
   };
   const query = useQuery();
-  const packageValue = query.get("version");
+  const packageValue = query.get('version') ? query.get('version') : 0;
   const service = services[packageValue];
   const modalButtonTitle = `Book Service: ${service.price}`;
   const modalTitle = `Book ${service.title}: ${service.buttonTitle}`;

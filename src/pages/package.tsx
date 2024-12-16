@@ -16,7 +16,7 @@ function Package() {
     return new URLSearchParams(search);
   }
   const query = useQuery();
-  const packageValue = query.get('version');
+  const packageValue = query.get('version') ? query.get('version') : 0;
   const service = services[packageValue];
 
   return (
