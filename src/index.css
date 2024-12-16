@@ -1,24 +1,49 @@
 @font-face {
   font-family: 'SendFlowers';
-  src: url(assets/fonts/SendFlowers-Regular.ttf) format('truetype');
+  src: url(fonts/SendFlowers-Regular.ttf) format('truetype');
 }
 @font-face {
   font-family: 'BigNoodle';
-  src: url(assets/fonts/big_noodle_titling.ttf) format('truetype');
+  src: url(fonts/big_noodle_titling.ttf) format('truetype');
 }
 
 @font-face {
   font-family: 'ADL';
-  src: url(assets/fonts/ADLaMDisplay-Regular.ttf) format('truetype');
+  src: url(fonts/ADLaMDisplay-Regular.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url(fonts/Montserrat-VariableFont_wght.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'PTSerif';
+  src: url(fonts/PTSerif-Regular.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Quicksand';
+  src: url(fonts/Quicksand-VariableFont_wght.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Playfair';
+  src: url(fonts/PlayfairDisplay-VariableFont_wght.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'GreatVibes';
+  src: url(fonts/GreatVibes-Regular.ttf) format('truetype');
 }
 
 html, body, #app, #app, #root {
   height: 100% !important;
   margin: 0px !important;
   padding: 0px !important;
-  background-color: #FFFFFF !important;
+  background-color: #F1F1E7 !important;
 }
 
 #root {
-  background-color: #FFFFFF;
+  background-color: #F1F1E7;
 }

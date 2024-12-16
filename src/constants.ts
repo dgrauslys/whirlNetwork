@@ -1,30 +1,29 @@
 // Site Colors
 //export const black = '#112944';
 export const black = '#080808ff';
-export const white = '#FFFFFF';
+export const white = '#F1F1E7';
 
-export const blue = '#0071BC';
-export const accentBlue = '#2CD7FF';
-export const orange = '#F15A24';
-export const accentOrange = '#FBB03B';
 
-export const pink = '#EEBBA3';
-export const fushia = '#E3495D';
-export const brown = '#C55A50';
+//export const wood = '#C3a991'; //actual
+export const wood = '#caa18dff';
+export const uglyPink = '#E5b558';
+export const uglyPink2 = '#F96c66';
+export const mustard = '#E5b558';
+export const pinkCream = '#D9b29f';
+export const cream = '#F2dccd';
 
-export const coffee = '#8F8255';
-export const toffee = '#E4DFAF';
-export const gold = '#D5B741';
-export const mint = '#C3C29C';
+//export const wood = '#FF0000';
 
-export const softGreen = '#d6dddc';
-export const sageGreen = '#687876ff';
-export const pastelGreen = '#E8F5E9';
+export const m1 = '#C3A991';
+export const chocolate = '#d2936aff';
+//export const chocolate = '#D9b29f';
 
-export const main = softGreen;
-export const accent = softGreen;
-export const secondary = sageGreen;
-export const secondaryAccent = pastelGreen;
+
+
+export const main = chocolate;
+export const accent = wood;
+export const secondary = chocolate;
+export const secondaryAccent = chocolate;
 
 
 // Font Sizes
@@ -42,5 +41,6 @@ export const borderSize = '3px';
 export const mobileMargin = '15px';
 
 export const isDev = false;
-export const imgUrl = isDev ? 'src/assets/images/' : '';
-export const baseUrl = isDev ? '/whirlNetwork/' : '/whirlNetwork/';
+//export const imgUrl = isDev ? 'src/assets/images/' : '/images/';
+export const imgUrl = isDev ? 'public/images/' : '/images/';
+export const baseUrl = isDev  ? "/zugyorganizer" : "/";

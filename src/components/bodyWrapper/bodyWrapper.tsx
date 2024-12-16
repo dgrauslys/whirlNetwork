@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { DesktopBody, MobileBody } from "./styles";
-import { accent, minimumDesktopSize, secondary } from "../../constants";
+import { accent, baseUrl, main, minimumDesktopSize, secondary } from "../../constants";
 import { DesktopContext } from "../../hooks/contexts";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { black } from "../../constants";
@@ -11,6 +11,8 @@ export const BodyWrapper = (props) => {
   const [isDesktop, setIsDesktop] = useState(
     window.innerWidth > minimumDesktopSize
   );
+
+  document.title = 'Zugy Organizer';
 
   const updateMedia = () => {
     setIsDesktop(window.innerWidth > minimumDesktopSize);
@@ -27,7 +29,7 @@ export const BodyWrapper = (props) => {
         main: `${accent}`, // Change this to your desired primary color
       },
       secondary: {
-        main: `${secondary}`, // Optional: Customize the secondary color
+        main: `${main}`, // Optional: Customize the secondary color
       },
       text: {
         primary: `${black}`, // Replace with your desired primary text color

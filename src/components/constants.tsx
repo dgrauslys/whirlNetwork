@@ -1,11 +1,7 @@
 import styled, { createGlobalStyle } from "styled-components";
 import Typography from "@mui/material/Typography";
-import { white, black, accent } from "../constants";
+import { white, black, accent, chocolate } from "../constants";
 import { basePadding } from "../constants";
-
-export const Nanum = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap');
-`;
 
 export const Wrapper = styled.div<{ $isDesktop?: boolean; }>`
 width: 100%;
@@ -22,10 +18,27 @@ padding-left: ${props => props.$isDesktop ? "0px" : "15px"};
 
 export const Copy = styled(Typography)(({ padding = '0px' }) => ({
   "&.MuiTypography-root": {
-    fontSize: "16px",
-    fontFamily: "Helvetica",
+    fontSize: "18px",
+    fontFamily: "Quicksand",
     paddingLeft: `${padding}`,
     paddingRight: `${padding}`,
+    lineHeight: "35px",
+  },
+}));
+
+export const Label = styled(Copy)(({ padding = '0px' }) => ({
+  "&.MuiTypography-root": {
+    fontWeight: 600,
+  },
+}));
+
+export const SmallCopy = styled(Copy)(({ padding = '0px' }) => ({
+  "&.MuiTypography-root": {
+    fontSize: "16px",
+    fontFamily: "Quicksand",
+    paddingLeft: `${padding}`,
+    paddingRight: `${padding}`,
+    lineHeight: "25px",
   },
 }));
 
@@ -38,6 +51,30 @@ export const CopyAccent = styled(Copy)({
 export const BigNoodle = styled(Typography)({
   "&.MuiTypography-root": {
     fontFamily: "BigNoodle",
+  },
+});
+
+export const Montserrat = styled(Typography)({
+  "&.MuiTypography-root": {
+    fontFamily: "Montserrat",
+  },
+});
+
+export const Quicksand = styled(Typography)({
+  "&.MuiTypography-root": {
+    fontFamily: "Quicksand",
+  },
+});
+
+export const Playfair = styled(Typography)({
+  "&.MuiTypography-root": {
+    fontFamily: "Playfair",
+  },
+});
+
+export const GreatVibes = styled(Typography)({
+  "&.MuiTypography-root": {
+    fontFamily: "GreatVibes",
   },
 });
 
@@ -55,18 +92,49 @@ export const TopText = styled(CopyAccent)({
   },
 });
 
-export const HeaderText2 = styled(BigNoodle)({
+export const HeaderText2 = styled(Montserrat)({
   "&.MuiTypography-root": {
     fontSize: "25px",
   },
 });
 
-export const HeaderText = styled(BigNoodle)`
+export const VibesHeaderExtraLarge = styled(GreatVibes)`
+  &.MuiTypography-root {
+    font-size: 45px;
+    color: ${chocolate};
+    letter-spacing: 1px;
+}`;
+
+export const VibesHeaderLarge = styled(GreatVibes)`
+  &.MuiTypography-root {
+    font-size: 35px;
+    color: ${chocolate};
+    letter-spacing: 1px;
+}`;
+
+export const VibesHeaderSmall = styled(GreatVibes)`
+  &.MuiTypography-root {
+    font-size: 18px;
+}`;
+
+export const SuperHeaderText = styled(Playfair)`
+  &.MuiTypography-root {
+    font-size: 35px;
+    color: ${chocolate};
+    letter-spacing: 1px;
+  }`;
+
+export const HeaderText = styled(SuperHeaderText)`
   &.MuiTypography-root {
     font-size: 25px;
   }`;
+
+  export const SmallHeaderText = styled(HeaderText)`
+  &.MuiTypography-root {
+    font-size: 18px;
+  }`;
   
-  export const SubHeaderText = styled(BigNoodle)`
+  export const SubHeaderText = styled(Playfair)`
   &.MuiTypography-root {
     font-size: 18px;
   }`;
